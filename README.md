@@ -1,8 +1,6 @@
-Sure! Here's an updated version of the README with a section for the Postman Collection link:
-
----
-
 # Inventory Admin API Documentation
+
+## **Challenge 1**
 
 ## Features
 
@@ -122,6 +120,103 @@ All authentication-related routes are prefixed with `/api/v1/auth`. These routes
 You can import the Postman Collection for testing the API endpoints into your Postman application using the following link:
 
 [Postman Collection: Inventory API](https://documenter.getpostman.com/view/23525113/2sAYX8KhFj)
+
+---
+
+## **Challenge 2: Optimized SQL/NoSQL Queries**
+
+### **Objective**
+
+Write optimized SQL/NoSQL queries to retrieve product data efficiently.
+
+### **Requirements:**
+
+#### **SQL Query** (Assuming PostgreSQL):
+
+**Task**: Write a query to retrieve products with a price between $50 and $200, ordered by price (ascending), with pagination (10 products per page).
+
+**SQL Query:**
+
+```sql
+SELECT *
+FROM products
+WHERE price BETWEEN 50 AND 200
+ORDER BY price ASC
+LIMIT 10 OFFSET (page_number - 1) * 10;
+```
+
+**Explanation of the query:**
+
+- `WHERE price BETWEEN 50 AND 200`: Filters products with prices between $50 and $200.
+- `ORDER BY price ASC`: Sorts the results by price in ascending order.
+- `LIMIT 10 OFFSET (page_number - 1) * 10`: Implements pagination by displaying 10 products per page.
+
+#### **NoSQL Query** (Assuming MongoDB):
+
+**Task**: Write a query to retrieve products by category (e.g., "Electronics"), sorted by price in descending order. Limit the result to 5 products per page.
+
+**MongoDB Query:**
+
+```javascript
+db.products
+  .find({ category: "Electronics" })
+  .sort({ price: -1 })
+  .skip((page_number - 1) * 5)
+  .limit(5);
+```
+
+**Explanation of the query:**
+
+- `{ category: "Electronics" }`: Filters products belonging to the "Electronics" category.
+- `.sort({ price: -1 })`: Sorts the results by price in descending order.
+- `.skip((page_number - 1) * 5)`: Skips items displayed in previous pages.
+- `.limit(5)`: Limits the results to 5 products per page.
+
+### **Optimizations**:
+
+#### **1. SQL Query Optimizations:**
+
+- **Indexes**:
+
+  - Create an index on the `price` column to improve filtering and sorting speed.
+  - Create an index on the `category` column if queries often filter by category.
+  - Add an index on `created_at` column for optimizing time-based queries.
+
+  **Example of creating an index on the price column:**
+
+  ```sql
+  CREATE INDEX idx_price ON products(price);
+  ```
+
+- **Caching**:
+  - Use caching (e.g., Redis) to store frequently queried results. This reduces the load on the database by serving results from memory.
+
+#### **2. NoSQL Query Optimizations:**
+
+- **Indexes**:
+
+  - Create indexes on frequently queried fields like `category` and `price`.
+
+  **Example of creating an index in MongoDB:**
+
+  ```javascript
+  db.products.createIndex({ category: 1 });
+  db.products.createIndex({ price: -1 });
+  ```
+
+- **Caching**:
+  - Use caching tools like Redis to store results for popular queries, which helps reduce the load on the database.
+
+### **Optimization for High Traffic Scenarios**:
+
+- **SQL**:
+
+  - **Indexing**: Create indexes on columns used for filtering and sorting, such as `price`, `category`, and `created_at`.
+  - **Reduce Complex Queries**: Minimize the use of complex joins or avoid them if possible to speed up the queries.
+  - **Caching**: Use caching to store frequently requested data, reducing the load on the database.
+
+- **NoSQL**:
+  - **Use Indexes**: Create indexes on frequently queried fields like `category` and `price`.
 
 ---
 
