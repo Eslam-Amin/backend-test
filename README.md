@@ -138,7 +138,7 @@ Certainly! Below is the updated **Files Overview** with `server.js` included as 
 
 - **authController.js**: Handles user authentication logic (login, registration, token generation, etc.).
 - **productController.js**: Manages product-related logic (creating products, updating product details, etc.).
-- **handlers/**: Contains error handling logic for controllers (e.g., centralized error handling).
+- **handlers/**: Contains Helper Function for CRUD Operations.
 
 ### **2. models/**
 
