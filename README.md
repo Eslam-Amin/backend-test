@@ -99,14 +99,6 @@ All authentication-related routes are prefixed with `/api/v1/auth`. These routes
 
 ---
 
-Certainly! Below is the updated **Files Overview** with `server.js` included as a separate file.
-
----
-
-Sure! Here's the updated folder structure with the new **middleware** folder included. This folder will contain files for authentication, error handling, and validation checks.
-
----
-
 ### **Folder Structure**
 
 ```
