@@ -103,21 +103,23 @@ Certainly! Below is the updated **Files Overview** with `server.js` included as 
 
 ---
 
-## Files Overview
+Sure! Here's the updated folder structure with the new **middleware** folder included. This folder will contain files for authentication, error handling, and validation checks.
+
+---
 
 ### **Folder Structure**
 
 ```
 ├── controllers/
-│   ├── authController.js
-│   ├── productController.js
+│   ├── auth.controller.js
+│   ├── product.controller.js
 │   └── handlers.js
 ├── models/
-│   ├── userModel.js
-│   └── productModel.js
+│   ├── user.model.js
+│   └── product.model.js
 ├── routers/
-│   ├── authRouter.js
-│   └── productRouter.js
+│   ├── auth.routes.js
+│   └── product.routes.js
 ├── startup/
 │   ├── app.js
 │   ├── db.js
@@ -129,26 +131,30 @@ Certainly! Below is the updated **Files Overview** with `server.js` included as 
 │   ├── constant.js
 │   └── generateCode.js
 ├── validators/
-│   ├── authValidator.js
-│   └── productValidator.js
+│   ├── auth.validator.js
+│   └── product.validator.js
+├── middleware/
+│   ├── auth.js
+│   ├── error.js
+│   └── validationCheck.js
 ├── server.js
 ```
 
 ### **1. controllers/**
 
-- **authController.js**: Handles user authentication logic (login, registration, token generation, etc.).
-- **productController.js**: Manages product-related logic (creating products, updating product details, etc.).
-- **handlers/**: Contains Helper Function for CRUD Operations.
+- **auth.controller.js**: Handles user authentication logic (login, registration, token generation, etc.).
+- **product.controller.js**: Manages product-related logic (creating products, updating product details, etc.).
+- **handlers.js**: Contains helper functions for CRUD operations and other reusable controller logic.
 
 ### **2. models/**
 
-- **userModel.js**: Defines the user schema for MongoDB (including fields like email, password, etc.).
-- **productModel.js**: Defines the product schema for MongoDB (including fields like name, price, category, etc.).
+- **user.model.js**: Defines the user schema for MongoDB (including fields like email, password, etc.).
+- **product.model.js**: Defines the product schema for MongoDB (including fields like name, price, category, etc.).
 
 ### **3. routers/**
 
-- **authRouter.js**: Handles all authentication routes (login, registration, etc.).
-- **productRouter.js**: Handles all product-related routes (create, update, delete products, etc.).
+- **auth.routes.js**: Handles all authentication routes (login, registration, etc.).
+- **product.routes.js**: Handles all product-related routes (create, update, delete products, etc.).
 
 ### **4. startup/**
 
@@ -166,20 +172,18 @@ Certainly! Below is the updated **Files Overview** with `server.js` included as 
 
 ### **6. validators/**
 
-- **authValidator.js**: Validates user input for authentication (e.g., email, password).
-- **productValidator.js**: Validates product input (e.g., name, category, price).
+- **auth.validator.js**: Validates user input for authentication (e.g., email, password).
+- **product.validator.js**: Validates product input (e.g., name, category, price).
 
-### **7. server.js**
+### **7. middleware/**
 
-- **server.js**: The entry point of the application. It initializes the Express server and connects the app to the database. This file starts the application and listens for incoming requests.
+- **auth.middleware.js**: Middleware to authenticate users (checks if the user is logged in and authorized to access routes).
+- **error.middleware.js**: Global error handler middleware to catch and format errors properly for API responses.
+- **validationCheck.middleware.js**: Middleware for checking if the validation errors occur based on the request data, and sends back relevant messages.
 
----
+### **8. server.js**
 
-### **Explanation of `server.js`**:
-
-- **server.js** is the entry point for starting the server.
-- It imports and configures all the necessary files (such as `app.js`, database connection setup, etc.).
-- It ensures the server is running on a specified port and is ready to handle requests.
+- **server.js**: The entry point of the application. It initializes the Express server, sets up middlewares, and connects to the database. This file starts the application and listens for incoming requests.
 
 ---
 
