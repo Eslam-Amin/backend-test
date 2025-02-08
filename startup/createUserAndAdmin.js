@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/user.model");
 const { ADMIN, USER } = require("../utils/constants");
 
-const createMainAdmin = asyncHandler(async () => {
+const createUserAndAdmin = asyncHandler(async () => {
   const admin = await User.findOne({ role: ADMIN });
   const user = await User.findOne({ role: USER });
   if (!admin) {
@@ -35,4 +35,4 @@ const createMainAdmin = asyncHandler(async () => {
   }
 });
 
-module.exports = createMainAdmin;
+module.exports = createUserAndAdmin;

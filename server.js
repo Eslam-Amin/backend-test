@@ -4,7 +4,7 @@ require("colors");
 require("dotenv").config();
 const express = require("express");
 
-const createMainAdmin = require("./startup/createAdmin");
+const createUserAndAdmin = require("./startup/createUserAndAdmin");
 
 // Express app
 const app = express();
@@ -19,7 +19,7 @@ require("./startup/db")();
 
 // Server
 server.listen(PORT, (_) => {
-  createMainAdmin();
+  createUserAndAdmin();
   console.log(`🚀 ~ Server  Running on port ~ ${PORT}`.blue.bold);
 });
 
