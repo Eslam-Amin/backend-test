@@ -1,6 +1,6 @@
 # Inventory Admin API Documentation
 
-## **Challenge 1**
+## **Challenge 1: Build a RESTful API with Node.js, Express, Express Validator, and JWT Authentication**
 
 ## Features
 
