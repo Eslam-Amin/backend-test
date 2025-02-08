@@ -1,6 +1,6 @@
 const { body } = require("express-validator");
 
-class GlobalValidator {
+class AuthValidator {
   static loginValidator = [
     body("email")
       .notEmpty()
@@ -67,4 +67,4 @@ class GlobalValidator {
       .withMessage("Confirm password is required.")
   ];
 }
-module.exports = GlobalValidator;
+module.exports = AuthValidator;
