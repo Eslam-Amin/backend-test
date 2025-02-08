@@ -121,7 +121,7 @@ All authentication-related routes are prefixed with `/api/v1/auth`. These routes
 
 You can import the Postman Collection for testing the API endpoints into your Postman application using the following link:
 
-[Postman Collection: Inventory API](#) _([Insert actual link to your Postman Collection](https://documenter.getpostman.com/view/23525113/2sAYX8KhFj))_
+[Postman Collection: Inventory API](https://documenter.getpostman.com/view/23525113/2sAYX8KhFj)
 
 ---
 
