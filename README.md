@@ -154,7 +154,7 @@ Certainly! Below is the updated **Files Overview** with `server.js` included as 
 
 - **app.js**: Sets up the Express app (configuring middlewares, routes, etc.).
 - **db.js**: Contains logic for connecting to the MongoDB database.
-- **createAdmin.js**: Logic for creating the default admin user in the database (if needed).
+- **createUserAndAdmin.js**: Logic for creating the default admin, user in the database (if needed).
 
 ### **5. utils/**
 
