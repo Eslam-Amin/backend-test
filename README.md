@@ -99,19 +99,87 @@ All authentication-related routes are prefixed with `/api/v1/auth`. These routes
 
 ---
 
+Certainly! Below is the updated **Files Overview** with `server.js` included as a separate file.
+
+---
+
 ## Files Overview
 
-### 1. **ApiFeatures.js**
+### **Folder Structure**
 
-- This file provides a set of features for querying the MongoDB database efficiently. It includes methods for filtering, sorting, limiting fields, and pagination.
+```
+├── controllers/
+│   ├── authController.js
+│   ├── productController.js
+│   └── handlers.js
+├── models/
+│   ├── userModel.js
+│   └── productModel.js
+├── routers/
+│   ├── authRouter.js
+│   └── productRouter.js
+├── startup/
+│   ├── app.js
+│   ├── db.js
+│   └── createUserAndAdmin.js
+├── utils/
+│   ├── ApiError.js
+│   ├── ApiFeatures.js
+│   ├── CapitalizeFirstLetter.js
+│   ├── constant.js
+│   └── generateCode.js
+├── validators/
+│   ├── authValidator.js
+│   └── productValidator.js
+├── server.js
+```
 
-### 2. **ApiError.js**
+### **1. controllers/**
 
-- This file defines a custom error class to standardize error handling across the API. It helps in creating specific error messages for different scenarios (e.g., validation errors, not found errors).
+- **authController.js**: Handles user authentication logic (login, registration, token generation, etc.).
+- **productController.js**: Manages product-related logic (creating products, updating product details, etc.).
+- **handlers/**: Contains error handling logic for controllers (e.g., centralized error handling).
 
-### 3. **GlobalErrorHandler.js**
+### **2. models/**
 
-- This file contains the middleware that handles all uncaught errors globally. It ensures that all errors are handled gracefully, providing proper HTTP status codes and descriptive error messages.
+- **userModel.js**: Defines the user schema for MongoDB (including fields like email, password, etc.).
+- **productModel.js**: Defines the product schema for MongoDB (including fields like name, price, category, etc.).
+
+### **3. routers/**
+
+- **authRouter.js**: Handles all authentication routes (login, registration, etc.).
+- **productRouter.js**: Handles all product-related routes (create, update, delete products, etc.).
+
+### **4. startup/**
+
+- **app.js**: Sets up the Express app (configuring middlewares, routes, etc.).
+- **db.js**: Contains logic for connecting to the MongoDB database.
+- **createAdmin.js**: Logic for creating the default admin user in the database (if needed).
+
+### **5. utils/**
+
+- **ApiError.js**: A custom error handler that provides a structured response for errors.
+- **ApiFeatures.js**: Utility that contains methods for filtering, sorting, limiting fields, and pagination for MongoDB queries.
+- **CapitalizeFirstLetter.js**: A utility function to capitalize the first letter of a string.
+- **constant.js**: Stores constant values (like status codes, roles, etc.).
+- **generateCode.js**: Generates random codes or unique identifiers (for example, product codes).
+
+### **6. validators/**
+
+- **authValidator.js**: Validates user input for authentication (e.g., email, password).
+- **productValidator.js**: Validates product input (e.g., name, category, price).
+
+### **7. server.js**
+
+- **server.js**: The entry point of the application. It initializes the Express server and connects the app to the database. This file starts the application and listens for incoming requests.
+
+---
+
+### **Explanation of `server.js`**:
+
+- **server.js** is the entry point for starting the server.
+- It imports and configures all the necessary files (such as `app.js`, database connection setup, etc.).
+- It ensures the server is running on a specified port and is ready to handle requests.
 
 ---
 
